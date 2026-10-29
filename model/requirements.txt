@@ -1,0 +1,42 @@
+# CivicLense AI — Python requirements
+#
+#   pip install -r requirements.txt
+#
+# ---------------------------------------------------------------------------
+# PYTHON 3.10, 3.11 OR 3.12. NOT 3.13.
+#
+# TensorFlow publishes no wheels for 3.13 yet. On 3.13 pip reports
+#
+#     ERROR: Could not find a version that satisfies the requirement
+#     tensorflow-cpu (from versions: none)
+#
+# "from versions: none" means pip found no build for your Python at all — not
+# that the pinned version is missing. Check with `python --version` before
+# anything else. If it says 3.13, install 3.12 from python.org and use it just
+# for this folder:
+#
+#     py -3.12 -m venv .venv
+#     .venv\Scripts\activate          (Windows)
+#     source .venv/bin/activate       (macOS/Linux)
+#     pip install -r requirements.txt
+# ---------------------------------------------------------------------------
+
+# A range rather than one pin, so pip can pick whichever build exists for your
+# Python. Anything from 2.16 ships Keras 3, which is what the bundled .keras
+# files need — a TF 2.15 install fails to deserialise them.
+tensorflow-cpu>=2.16,<3   # use `tensorflow` instead if you have a GPU
+
+# Left to TensorFlow to resolve. Pinning keras and numpy independently is how
+# ABI mismatches happen: TF is built against specific versions of both, and
+# overriding them produces import-time errors that look like corrupt installs.
+pillow>=10.0
+h5py>=3.10
+
+# --- serving -----------------------------------------------------------------
+flask>=3.0
+flask-cors>=4.0
+
+# gunicorn needs fcntl, which is Unix-only, so pip aborts the whole file on
+# Windows without this marker. Waitress is the Windows equivalent.
+gunicorn>=21.0 ; sys_platform != "win32"
+waitress>=3.0  ; sys_platform == "win32"

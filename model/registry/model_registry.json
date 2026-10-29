@@ -1,0 +1,56 @@
+{
+  "project": "CivicPulse AI",
+  "system_version": "2.0.0",
+  "updated_at": "2026-09-08T14:48:00Z",
+  "models": {
+    "civic_classifier": {
+      "name": "Model 0 - Civic Gate",
+      "version": "civic-v1.2",
+      "architecture": "MobileNetV2-Transfer",
+      "input_resolution": "224x224x3",
+      "threshold": 0.45,
+      "uncertain_band": 0.15,
+      "evaluation": {
+        "accuracy": 0.942,
+        "roc_auc": 0.968,
+        "f1_civic": 0.945,
+        "f1_non_civic": 0.938
+      }
+    },
+    "category_classifier": {
+      "name": "Hierarchical Category Classifier",
+      "version": "category-v1.4",
+      "architecture": "MobileNetV2-Centroids-Hierarchical",
+      "domains_count": 10,
+      "categories_count": 39,
+      "min_confidence": 0.45,
+      "evaluation": {
+        "macro_f1": 0.812,
+        "weighted_f1": 0.846
+      }
+    },
+    "detector": {
+      "name": "Civic Object Localizer",
+      "version": "detector-v1.1",
+      "type": "Saliency-Contour-Localizer",
+      "min_confidence": 0.50
+    },
+    "authenticity_model": {
+      "name": "Probabilistic Provenance & ELA Analyzer",
+      "version": "authenticity-v1.0",
+      "checks": [
+        "EXIF_metadata",
+        "pHash_dHash",
+        "ELA_recompression_divergence",
+        "AI_generator_keywords"
+      ]
+    },
+    "duplicate_engine": {
+      "name": "Multi-Modal Duplicate Detector",
+      "version": "duplicate-v1.0",
+      "embedding_dim": 1280,
+      "metric": "cosine + haversine",
+      "geo_threshold_meters": 75.0
+    }
+  }
+}

@@ -1,0 +1,122 @@
+/* ============================================================
+   CivicLense — design tokens
+
+   Two ideas govern everything below.
+
+   1. A 4px spacing grid, exposed as named steps. Every margin and
+      padding in the product is one of these. Arbitrary values are
+      what made the earlier build feel loose in some places and
+      cramped in others.
+
+   2. A 1.25 type ratio with fixed steps. No overlapping clamp()
+      ranges, so a heading is never accidentally the same size as
+      the paragraph beneath it.
+   ============================================================ */
+
+:root {
+  /* ---------- spacing: 4px grid ---------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 40px;
+  --s-9: 56px;
+  --s-10: 80px;
+
+  /* legacy aliases, kept so older markup keeps its rhythm */
+  --sp-1: var(--s-1); --sp-2: var(--s-2); --sp-3: var(--s-3); --sp-4: var(--s-4);
+  --sp-5: var(--s-6); --sp-6: var(--s-7); --sp-7: var(--s-9); --sp-8: var(--s-10);
+
+  /* ---------- type: 1.25 ratio ---------- */
+  --t-2xs: 11px;
+  --t-xs:  12px;
+  --t-sm:  13px;
+  --t-base:15px;
+  --t-md:  17px;
+  --t-lg:  21px;
+  --t-xl:  27px;
+  --t-2xl: 34px;
+  --t-3xl: 44px;
+
+  --lh-tight: 1.15;
+  --lh-snug:  1.35;
+  --lh-body:  1.6;
+
+  --track-tight: -0.02em;
+  --track-snug:  -0.01em;
+  --track-wide:   0.06em;
+
+  /* ---------- surfaces ---------- */
+  --black:     #08080A;
+  --ink-900:   #0E1014;
+  --ink-800:   #16181D;
+  --ink-700:   #1F2229;
+  --ink-line:  #2A2E37;
+
+  --bg:        #F6F7F9;   /* a touch cooler and lighter than before */
+  --surface:   #FFFFFF;
+  --surface-2: #F1F3F6;
+  --surface-3: #E8EBF0;
+  --line:      #E3E7EC;
+  --line-firm: #CFD5DE;
+
+  /* ---------- record ----------
+     A civic file has its own visual language: reference numbers, ward
+     codes, endorsements. This blue-black marks that structural layer, so
+     it is never confused with something actionable. */
+  --record:     #1B3A5C;
+  --record-2:   #2E5480;
+  --record-bg:  #EEF3F8;
+  --record-line:#D3E0EC;
+
+  /* ---------- text ---------- */
+  --text:      #10131A;
+  --text-2:    #454C58;
+  --muted:     #6E7683;
+  --on-dark:   #F4F6F8;
+  --on-dark-2: #98A0AE;
+
+  /* ---------- accent ----------
+     Used for exactly two things: the single primary action on a screen,
+     and the key node of the Responsibility Spine. It was previously on the
+     logo, the active nav item, every badge, every step number and every
+     focus ring — eight different meanings, so it carried none of them.
+     Status colours below stay, because those genuinely encode meaning. */
+  --accent:     #E8500F;
+  --accent-600: #CC4409;
+  --accent-700: #A63706;
+  --accent-50:  #FDF1EA;
+  --accent-100: #F8DCCB;
+  --accent-ink: #FFFFFF;
+
+  /* ---------- status ---------- */
+  --ok:      #0F7A52;  --ok-bg:      #E2F5EC;  --ok-line:      #B7E3CE;
+  --info:    #1B5FD4;  --info-bg:    #E4EDFD;  --info-line:    #BCD3F8;
+  --pending: #4A5261;  --pending-bg: #EDEFF3;  --pending-line: #D7DCE4;
+  --warn:    #A15C09;  --warn-bg:    #FCF0DC;  --warn-line:    #F0DBB2;
+  --danger:  #B32D25;  --danger-bg:  #FBE6E4;  --danger-line:  #F3C8C4;
+
+  /* ---------- geometry ---------- */
+  --r-xs: 6px; --r-sm: 8px; --r: 10px; --r-lg: 14px; --r-xl: 18px; --r-pill: 999px;
+
+  /* Layered rather than one blur — a card should read as sitting on the page,
+     not floating above it. */
+  --sh-1: 0 1px 2px rgba(16,19,26,.06);
+  --sh-2: 0 1px 2px rgba(16,19,26,.05), 0 4px 12px rgba(16,19,26,.06);
+  --sh-3: 0 2px 4px rgba(16,19,26,.05), 0 12px 28px rgba(16,19,26,.10);
+  --sh-4: 0 4px 8px rgba(16,19,26,.06), 0 24px 56px rgba(16,19,26,.16);
+  --sh-accent: 0 2px 6px rgba(240,90,40,.24), 0 8px 20px rgba(240,90,40,.20);
+
+  --ring: 0 0 0 3px var(--accent-100);
+
+  /* ---------- fonts ---------- */
+  --display: "Archivo", system-ui, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --sidebar-w: 248px;
+  --page-max: 1400px;
+}

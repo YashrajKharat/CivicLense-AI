@@ -1,0 +1,50 @@
+{
+  "labels": [
+    "damaged_park_equipment",
+    "damaged_traffic_signal",
+    "dead_animal",
+    "electrical_hazard",
+    "fallen_tree",
+    "footpath_encroachment",
+    "illegal_parking",
+    "open_manhole",
+    "public_toilet_unusable",
+    "road_surface_damage",
+    "stray_animal_concern",
+    "unhygienic_food_stall",
+    "waste_accumulation",
+    "water_related_issue"
+  ],
+  "merged_groups": {
+    "electrical_hazard": [
+      "damaged_electrical_pole",
+      "exposed_wire",
+      "broken_streetlight"
+    ],
+    "road_surface_damage": [
+      "pothole",
+      "road_crack",
+      "broken_footpath"
+    ],
+    "waste_accumulation": [
+      "illegal_dumping",
+      "garbage_overflow",
+      "construction_debris",
+      "pan_stains",
+      "defaced_wall"
+    ],
+    "public_toilet_unusable": [
+      "public_toilet_unusable",
+      "pan_stains",
+      "defaced_wall"
+    ],
+    "water_related_issue": [
+      "water_leakage",
+      "damp_or_seepage",
+      "flooding",
+      "contaminated_water",
+      "broken_pipeline"
+    ]
+  },
+  "dropped_classes": {}
+}
